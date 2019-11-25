@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/25 19:07:24 by fprovolo         ###   ########.fr       */
+/*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
+/*   Updated: 2019/11/25 19:57:49 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "fdf.h"
+#include <stdio.h>
 
-# include <fcntl.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct  s_pix
+t_map	*read_map(int fd)
 {
-	int			x;
-	int			y;
-	int			z;
-	int			red;
-	int			green;
-	int			blue;
-	int			color;
-	t_pix		*next;
-}				t_pix;
-
-typedef struct	s_map
-{
-	int			size_x;
-	int			size_y;
-	int			max_z;
-	int			min_z;
-	t_pix		*pix;
-}				t_map;
-
-t_map			*read_map(int fd);
-
-#endif
+	char	*line;
+	int		res;
+	int		parse;
+	t_map	*map;
+	
+	if (!(map = init_map()))
+		return (NULL);
+	parse = 1;
+	while ((res = get_next_line(fd, &line)) > 0 && parse == 1)
+	{
+		parse = parse_line(line, map);
+		free(line);
+	}
+	if (res == 0 && parse == 1)
+	{
+		free(line);
+		return (map);
+	}
+	return (NULL);
+}

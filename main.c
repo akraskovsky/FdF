@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 16:02:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/22 15:09:50 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/11/25 19:07:24 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ int main(int argc, char **argv)
 {
 	char    *points;
 	int     fd;
+	t_map	*map;
 
 	if (argc == 2)
 		if ((fd = open(argv[1], O_RDONLY)) > 0)
 		{
-			points = fdf_read_map(fd);
+			map = read_map(fd);
 			close(fd);
+			if (map == NULL)
+				ft_putendl("Map error");
 		}
 		else
 			ft_putendl("File error");
