@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/26 18:36:53 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/11/27 11:07:28 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int					parse_point(char *line, t_map *map, int x, int y);
 int					parse_line(char *line, t_map *map);
 void				clean_map(t_map *map);
 void				clean_points(char **points);
+void				print_map(t_map *map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/26 18:51:02 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/11/27 11:09:38 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,12 @@ int		parse_point(char *line, t_map *map, int x, int y)
 	pix->x = x;
 	pix->y = y;
 	pix->z = atoi(line);
+	pix->color = 0x00FFFF;
 	pix->next = NULL;
-	map->last_pix->next = pix;
+	if (map->pix == NULL)
+		map->pix = pix;
+	else
+		map->last_pix->next = pix;
 	map->last_pix = pix;
 	return (0);
 }
@@ -84,7 +88,6 @@ t_map	*read_map(int fd)
 	
 	if (!(map = init_map()))
 		return (NULL);
-	printf("Read_map ***");
 	res = 1;
 	while (res > 0)
 	{
@@ -99,7 +102,7 @@ t_map	*read_map(int fd)
 			return (NULL);
 		free(line);
 		map->size_y += res;
-		printf("Read_map, line=%d\n", map->size_y);
+		// printf("Read_map, line=%d\n", map->size_y);
 	}
 	return (map);
 }
