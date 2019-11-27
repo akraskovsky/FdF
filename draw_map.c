@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/19 16:02:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/27 17:42:52 by fprovolo         ###   ########.fr       */
+/*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
+/*   Updated: 2019/11/27 20:04:53 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main(int argc, char **argv)
+void	draw_map(t_map *map)
 {
-	int     fd;
-	t_map	*map;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_map	*ptr;
 
-	if (argc == 2)
-		if ((fd = open(argv[1], O_RDONLY)) > 0)
-		{
-			if ((map = read_map(fd)) == NULL)
-				ft_putendl("Map error");
-			else
-			{
-				print_map(map);
-				draw_map(map);
-				clean_map(map);
-			}
-			close(fd);
-		}
-		else
-			ft_putendl("File error");
-	else
-		ft_putendl("Usage: ./fdf map_filename");
-	return (0);
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr, WIDTH, HEIGHT, "FdF project");
+	ptr = map;
+	mlx_loop(mlx_ptr);
+	return ;
 }
