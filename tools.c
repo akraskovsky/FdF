@@ -1,47 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_tools.c                                      :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/26 16:18:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/28 18:16:59 by fprovolo         ###   ########.fr       */
+/*   Created: 2019/11/28 15:23:21 by fprovolo          #+#    #+#             */
+/*   Updated: 2019/11/28 17:23:30 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	clean_map(t_map *map)
+double  percent(int start, int finish, int point)
 {
-	t_pix	*tmp;
-	
-	while (map->pix != NULL)
-	{
-		tmp = map->pix;
-		map->pix = map->pix->next;
-		free(tmp);
-	}
-	free(map);
-	return ;
+	double	len;
+	double	current;
+
+	len = finish - start;
+	current = point - start;
+	return ((len == 0) ? 1.0 : (current/len));
 }
 
-void	clean_points(char **points)
+int		ft_abs(int x)
 {
-	int	i;
-
-	i = 0;
-	while (points[i] != NULL)
-    {
-		free(points[i]);
-        i++;
-    }
-	free(points);
-	return ;
-}
-
-void	terminate(char *message)
-{
-	ft_putendl(message);
-	exit(1);
+	return ((x < 0) ? -x : x);
 }

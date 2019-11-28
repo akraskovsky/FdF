@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/27 20:04:53 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/11/28 18:05:21 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <math.h>
 # include "mlx.h"
 # include "libft/libft.h"
 
@@ -42,6 +43,14 @@ typedef struct		s_map
 	t_pix			*last_pix;
 }					t_map;
 
+typedef struct		s_fdf
+{
+	void			*mlx;
+	void			*win;
+	void			*img;
+	t_map			*map;
+}					t_fdf;
+
 t_map				*read_map(int fd);
 t_map				*init_map(void);
 int					parse_point(char *line, t_map *map, int x, int y);
@@ -50,5 +59,8 @@ void				clean_map(t_map *map);
 void				clean_points(char **points);
 void				print_map(t_map *map);
 void				draw_map(t_map *map);
+int					key_pressed(int key, void *param);
+int					ft_abs(int x);
+void				terminate(char *message);
 
 #endif

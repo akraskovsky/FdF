@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/20 10:53:01 by fprovolo          #+#    #+#              #
-#    Updated: 2019/11/27 18:49:19 by fprovolo         ###   ########.fr        #
+#    Updated: 2019/11/28 18:17:54 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_PATH = ./
-SRC_NAME = main.c read_map.c clean_tools.c test_tools.c draw_map.c
+SRC_NAME = main.c read_map.c clean_tools.c test_tools.c draw_map.c tools.c
 
 OBJ_PATH = ./
 OBJ_NAME = $(SRC_NAME:.c=.o)
