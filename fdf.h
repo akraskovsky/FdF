@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/28 18:05:21 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/11/30 15:59:07 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void				print_map(t_map *map);
 void				draw_map(t_map *map);
 int					key_pressed(int key, void *param);
 int					ft_abs(int x);
+double  			percent(t_pix start, t_pix finish, t_pix point);
 void				terminate(char *message);
 
 #endif

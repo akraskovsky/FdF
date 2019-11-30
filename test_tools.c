@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/28 13:12:47 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/11/29 13:46:25 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int		key_pressed(int key, void *param)
 	ft_putnbr(key);
 	ft_putendl(" was pressed");
 	if (key == 53)
-		exit (0);
+		exit(0);
 	return (0);
 }
