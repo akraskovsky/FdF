@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/30 18:49:58 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:34:18 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct		s_fdf
 
 t_map				*read_map(int fd);
 t_map				*init_map(void);
+int					parse_color(char *str);
 int					parse_point(char *line, t_map *map, int x, int y);
 int					parse_line(char *line, t_map *map);
 void				clean_map(t_map *map);

@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/30 18:44:39 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:04:25 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		color(t_pix start, t_pix end, t_pix curr)
 			- (start.color >> 8 & 0xFF)) * pcnt;
 	blue = (start.color & 0xFF) + ((end.color & 0xFF) 
 			- (start.color & 0xFF)) * pcnt;
-	printf("percent=%f\tred=%X green=%X blue=%X\n", pcnt, red, green, blue);
+//	printf("percent=%f\tred=%X green=%X blue=%X\n", pcnt, red, green, blue);
 	return ((red << 16) + (green << 8) + blue);
 }
 

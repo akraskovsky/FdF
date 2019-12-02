@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/27 11:09:38 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:32:29 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,53 @@ t_map	*init_map(void)
 	return (map);
 }
 
+int		parse_color(char *str)
+{
+	int	color;
+	
+	printf("str = %s\n", str);
+	if (ft_strncmp(str, ",0x", 3) != 0)
+		terminate("Error: Bad map1");
+	str += 3;
+	color = 0;
+	while (*str != '\0')
+	{
+		if (ft_strchr("abcdefABCDEF", *str))
+			color = color * 16 + (ft_toupper(*str) - 55);
+		else if (ft_strchr("0123456789", *str))
+			color = color * 16 + (*str - 48);
+		else
+			terminate("error: Bad map2");
+		str++;
+	}
+	return (color);
+}
+
 int		parse_point(char *line, t_map *map, int x, int y)
 {
-	char	*ptr;
 	t_pix	*pix;
 
-	ptr = line;
-	while (*ptr != '\0')
-	{
-		if (!(ft_strchr("+-0123456789", (int)*ptr)))
-			return (-1);
-		ptr++;
-	}
 	if (!(pix = (t_pix *)malloc(sizeof(t_pix))))
 		return (-1);
 	pix->x = x;
 	pix->y = y;
-	pix->z = atoi(line);
-	pix->color = 0x00FFFF;
+	pix->z = ft_atoi(line);
+	pix->color = DEF_COLOR;
 	pix->next = NULL;
 	if (map->pix == NULL)
 		map->pix = pix;
 	else
 		map->last_pix->next = pix;
 	map->last_pix = pix;
+	while (*line != '\0')
+	{
+		if (!(ft_strchr("+-0123456789", (int)*line)))
+		{
+			pix->color = parse_color(line);
+			return (0);
+		}
+		line++;
+	}
 	return (0);
 }
 
