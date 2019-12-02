@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/02 15:04:25 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/02 17:39:52 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ void	draw_map(t_map *map)
 		
 	start.x = 55;
 	start.y = 355;
-	start.color = 0xFF00FF;
+	start.color = 0xFF0000;
 	end.x = 1000;
 	end.y = 300;
-	end.color = 0xFFFF00;
+	end.color = 0x00FF00;
 	draw_line(fdf, start, end);
 	mlx_key_hook(fdf->win, key_pressed, (void *)0);
 	mlx_loop(fdf->mlx);

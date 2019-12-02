@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/02 15:32:29 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/02 17:35:25 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		parse_color(char *str)
 	
 	printf("str = %s\n", str);
 	if (ft_strncmp(str, ",0x", 3) != 0)
-		terminate("Error: Bad map1");
+		terminate("Error: Bad map");
 	str += 3;
 	color = 0;
 	while (*str != '\0')
@@ -44,7 +44,7 @@ int		parse_color(char *str)
 		else if (ft_strchr("0123456789", *str))
 			color = color * 16 + (*str - 48);
 		else
-			terminate("error: Bad map2");
+			terminate("error: Bad map");
 		str++;
 	}
 	return (color);
