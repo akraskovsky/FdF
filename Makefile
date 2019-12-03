@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/20 10:53:01 by fprovolo          #+#    #+#              #
-#    Updated: 2019/11/28 18:17:54 by fprovolo         ###   ########.fr        #
+#    Updated: 2019/12/03 13:59:32 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_PATH = ./
 SRC_NAME = main.c read_map.c clean_tools.c test_tools.c draw_map.c tools.c
 
-OBJ_PATH = ./
+OBJ_PATH = ./objects/
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
@@ -34,11 +34,14 @@ LIBRARIES = -lmlx -lft -L$(LIBFT_PATH) -L$(MLX_PATH) -framework OpenGL -framewor
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(MLX) $(OBJ_NAME)
-	$(CC) -o $(NAME) $(OBJ_NAME) $(LIBRARIES)
+$(NAME): $(LIBFT) $(MLX) $(OBJ_PATH) $(OBJ)
+	$(CC) -o $(NAME) $(OBJ) $(LIBRARIES)
 
-%.o: %.c $(NAME).h
-	$(CC) $(CFLAGS) -o $@ -c $<
+$(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)
+
+$(OBJ_PATH)%.o: %.c $(NAME).h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT): 
 	make -C $(LIBFT_PATH)
@@ -47,7 +50,7 @@ $(MLX):
 	make -C $(MLX_PATH)
 
 clean:
-	/bin/rm -f $(OBJ)
+	/bin/rm -rf $(OBJ)
 	make -C $(LIBFT_PATH) clean
 	make -C $(MLX_PATH) clean
 
