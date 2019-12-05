@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/02 17:39:52 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/05 17:21:36 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ void	draw_map(t_map *map)
 		terminate("Initialization error");
 	fdf->map = map;
 		
-	start.x = 55;
-	start.y = 355;
+	start.x = 10;
+	start.y = 10;
 	start.color = 0xFF0000;
-	end.x = 1000;
-	end.y = 300;
+	end.x = 1200;
+	end.y = 600;
 	end.color = 0x00FF00;
 	draw_line(fdf, start, end);
 	mlx_key_hook(fdf->win, key_pressed, (void *)0);

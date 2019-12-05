@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/03 18:12:09 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/05 18:13:58 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ typedef struct		s_map
 	int				size_y;
 	int				max_z;
 	int				min_z;
-	int				bg_color;
+	int				*z_array;
+	int				*color_array;
 	t_pix			*pix;
 	t_pix			*last_pix;
 }					t_map;
@@ -57,8 +58,8 @@ typedef struct		s_fdf
 t_map				*read_map(int fd);
 t_map				*init_map(void);
 int					parse_color(char *str);
-int					parse_point(char *line, t_map *map, int x, int y);
-int					parse_line(char *line, t_map *map);
+void				parse_point(char *line, t_map *map, int x, int y);
+void				parse_line(char *line, t_map *map);
 void				clean_map(t_map *map);
 void				clean_points(char **points);
 void				print_map(t_map *map);
