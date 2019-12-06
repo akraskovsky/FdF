@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/05 17:50:13 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/06 18:56:56 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,21 @@
 
 void    print_map(t_map *map)
 {
-	t_pix   *ptr;
+	int		x;
+	int		y;
 
-	printf("field x=%d y=%d\n", map->size_x, map->size_y);
-	ptr = map->pix;
-	while (ptr != NULL)
+	printf("Field size: x=%d y=%d\n", map->size_x, map->size_y);
+	y = 0;
+	while (y < map->size_y)
 	{
-		printf("x=%d\ty=%d\tz=%d\tcolor=%X\n", ptr->x, ptr->y, ptr->z, ptr->color);
-		ptr = ptr->next;
+		x = 0;
+		while (x < map->size_x)
+		{
+			printf("%3d", map->z[y * map->size_x + x]);
+			x++;
+		}
+		printf("\n");
+		y++;
 	}
 }
 

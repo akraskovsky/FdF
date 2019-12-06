@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 16:18:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/28 18:16:59 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/06 18:54:54 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	clean_map(t_map *map)
 {
-	t_pix	*tmp;
-	
-	while (map->pix != NULL)
-	{
-		tmp = map->pix;
-		map->pix = map->pix->next;
-		free(tmp);
-	}
+//	t_pix	*tmp;
+//	
+//	while (map->pix != NULL)
+//	{
+//		tmp = map->pix;
+//		map->pix = map->pix->next;
+//		free(tmp);
+//	}
 	free(map);
 	return ;
 }

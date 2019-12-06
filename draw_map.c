@@ -6,11 +6,22 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/05 17:21:36 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/06 19:12:33 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+t_pix	get_point(t_map *map, int x, int y)
+{
+	t_pix	point;
+
+	point.x = x;
+	point.y = y;
+	point.z = map->z[y * map->size_x + x];
+	point.color = map->color[y * map->size_x + x];
+	return (point);
+}
 
 int		color(t_pix start, t_pix end, t_pix curr)
 {

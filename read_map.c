@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/05 18:27:53 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/06 18:59:45 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ t_map	*init_map(void)
 	map->size_y = 0;
 	map->min_z = 0;
 	map->max_z = 0;
-	map->z_array = NULL;
-	map->color_array = NULL;
-	map->pix = NULL;
-	map->last_pix = NULL;
+	map->z = NULL;
+	map->color = NULL;
 	return (map);
 }
 
@@ -33,10 +31,9 @@ int		parse_color(char *str)
 {
 	int	color;
 	
-	printf("str = %s\n", str);
-	if (ft_strncmp(str, ",0x", 3) != 0)
+	if (ft_strncmp(str, "0x", 2) != 0)
 		terminate("Error: Bad map");
-	str += 3;
+	str += 2;
 	color = 0;
 	while (*str != '\0')
 	{
@@ -51,35 +48,26 @@ int		parse_color(char *str)
 	return (color);
 }
 
-void	parse_point(char *line, t_map *map, int x, int y)
+void	parse_point(char *line, t_point **points_stack)
 {
 	t_pix	*pix;
+	t_point	*newpoint;
 
 	if (!(pix = (t_pix *)malloc(sizeof(t_pix))))
 		terminate("Memory allocation error");
-	pix->x = x;
-	pix->y = y;
-	pix->z = ft_atoi(line);
-	pix->color = DEF_COLOR;
-	pix->next = NULL;
-	if (map->pix == NULL)
-		map->pix = pix;
-	else
-		map->last_pix->next = pix;
-	map->last_pix = pix;
-	while (*line != '\0')
-	{
-		if (!(ft_strchr("+-0123456789", (int)*line)))
-		{
-			pix->color = parse_color(line);
-			return ;
-		}
+	if (!(newpoint = (t_point *)malloc(sizeof(t_point))))
+		terminate("Memory allocation error");
+	newpoint->z = ft_atoi(line);
+	newpoint->color = DEF_COLOR;
+	while (*line != '\0' && *line != ',')
 		line++;
-	}
+	if (*line == ',')
+		newpoint->color = parse_color(line + 1);
+	push_stack(newpoint, points_stack); 	
 	return ;
 }
 
-void	parse_line(char *line, t_map *map)
+void	parse_line(char *line, t_point **points_stack, t_map *map)
 {
 	int		column;
 	char	**points;
@@ -89,12 +77,12 @@ void	parse_line(char *line, t_map *map)
 	column = 0;
 	while (points[column] != NULL)
 	{
-		parse_point(points[column], map, column, map->size_y);
+		parse_point(points[column], points_stack);
 		column++;
 	}
-	if (map->size_x == 0)
+	if (map->size_x == 0)			// 1st string
 		map->size_x = column;
-	if (map->size_x != column)
+	if (map->size_x != column)		// String length differs
 		terminate("error: Bad map");
 	clean_points(points);
 	return ;
@@ -103,19 +91,22 @@ void	parse_line(char *line, t_map *map)
 t_map	*read_map(int fd)
 {
 	char	*line;
-	int		res;
+	int		string;
 	t_map	*map;
+	t_point	*points_stack;
 	
 	map = init_map();
-	res = 1;
-	while (res > 0)
+	points_stack = NULL;
+	string = 1;
+	while (string > 0)
 	{
-		if ((res = get_next_line(fd, &line)) < 0)
+		if ((string = get_next_line(fd, &line)) < 0)
 			terminate("File error");
-		else if (res > 0)
-			parse_line(line, map);
+		else if (string > 0)
+			parse_line(line, &points_stack, map);
 		free(line);
-		map->size_y += res;
+		map->size_y += string;
 	}
+	create_map_array(map, &points_stack);
 	return (map);
 }
