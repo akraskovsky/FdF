@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/06 18:59:45 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/09 14:13:07 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ t_map	*init_map(void)
 	map->size_y = 0;
 	map->min_z = 0;
 	map->max_z = 0;
+	map->scale_xy = 1;
+	map->scale_z = 1;
+	map->canter_x = WIDTH / 2;
+	map->canter_y = HEIGHT / 2;
 	map->z = NULL;
 	map->color = NULL;
 	return (map);
@@ -107,6 +111,9 @@ t_map	*read_map(int fd)
 		free(line);
 		map->size_y += string;
 	}
+	map->scale_xy = HEIGHT / (map->size_x + map->size_y) * 3 / 2;
+	if (map->max_z > map->min_z)
+		map->scale_z = HEIGHT / 3 / (map->max_z - map->min_z);
 	create_map_array(map, &points_stack);
 	return (map);
 }

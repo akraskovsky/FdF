@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/06 18:56:56 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/09 14:13:26 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void    print_map(t_map *map)
 	int		x;
 	int		y;
 
-	printf("Field size: x=%d y=%d\n", map->size_x, map->size_y);
+	printf("\nField size: x=%d y=%d\n", map->size_x, map->size_y);
+	printf("Min_z=%d max_z=%d\n", map->min_z, map->max_z);
+	printf("Scale: x,y=%d z=%d\n", map->scale_xy, map->scale_z);
+	printf("Window center: x=%d y=%d\n-------\n", map->canter_x, map->canter_y);
 	y = 0;
 	while (y < map->size_y)
 	{

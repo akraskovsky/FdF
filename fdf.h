@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/06 19:12:33 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/09 12:13:00 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ typedef struct		s_map
 	int				size_y;
 	int				max_z;
 	int				min_z;
+	int				scale_xy;
+	int				scale_z;
+	int				canter_x;
+	int				canter_y;
 	int				*z;
 	int				*color;
 }					t_map;

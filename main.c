@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 16:02:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/06 19:18:36 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/09 14:19:00 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 //	Test:
 	x = 2;
 	y = 3;
-	printf("\nx=%d, y=%d, z=%d, color=%d\n", x, y, get_point(map, x, y).z, get_point(map, x, y).color);
+	printf("\nx=%d, y=%d\nx=%d, y=%d, z=%d, color=%d\n", x, y, get_point(map, x, y).x, get_point(map, x, y).y, get_point(map, x, y).z, get_point(map, x, y).color);
 //	draw_map(map);
 	clean_map(map);
 	close(fd);
