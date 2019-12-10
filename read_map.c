@@ -24,8 +24,8 @@ t_map	*init_map(void)
 	map->max_z = 0;
 	map->scale_xy = 1;
 	map->scale_z = 1;
-	map->canter_x = WIDTH / 2;
-	map->canter_y = HEIGHT / 2;
+	map->center_x = WIDTH / 2;
+	map->center_y = HEIGHT / 2;
 	map->z = NULL;
 	map->color = NULL;
 	return (map);
@@ -111,9 +111,10 @@ t_map	*read_map(int fd)
 		free(line);
 		map->size_y += string;
 	}
+	create_map_array(map, &points_stack);
 	map->scale_xy = HEIGHT / (map->size_x + map->size_y) * 3 / 2;
 	if (map->max_z > map->min_z)
-		map->scale_z = HEIGHT / 3 / (map->max_z - map->min_z);
-	create_map_array(map, &points_stack);
+		map->scale_z = HEIGHT / 4 / (map->max_z - map->min_z);
+
 	return (map);
 }

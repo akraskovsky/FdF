@@ -29,8 +29,8 @@ int main(int argc, char **argv)
 //	Test:
 	x = 2;
 	y = 3;
-	printf("\nx=%d, y=%d\nx=%d, y=%d, z=%d, color=%d\n", x, y, get_point(map, x, y).x, get_point(map, x, y).y, get_point(map, x, y).z, get_point(map, x, y).color);
-//	draw_map(map);
+	printf("\nx=%d, y=%d\nx=%d, y=%5d, z=9%d, color=%d\n", x, y, get_point(map, x, y).x, get_point(map, x, y).y, get_point(map, x, y).z, get_point(map, x, y).color);
+	draw_map(map);
 	clean_map(map);
 	close(fd);
 	return (0);

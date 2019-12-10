@@ -50,8 +50,8 @@ typedef struct		s_map
 	int				min_z;
 	int				scale_xy;
 	int				scale_z;
-	int				canter_x;
-	int				canter_y;
+	int				center_x;
+	int				center_y;
 	int				*z;
 	int				*color;
 }					t_map;

@@ -20,7 +20,7 @@ void    print_map(t_map *map)
 	printf("\nField size: x=%d y=%d\n", map->size_x, map->size_y);
 	printf("Min_z=%d max_z=%d\n", map->min_z, map->max_z);
 	printf("Scale: x,y=%d z=%d\n", map->scale_xy, map->scale_z);
-	printf("Window center: x=%d y=%d\n-------\n", map->canter_x, map->canter_y);
+	printf("Window center: x=%d y=%d\n-------\n", map->center_x, map->center_y);
 	y = 0;
 	while (y < map->size_y)
 	{
