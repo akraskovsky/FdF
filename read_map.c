@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/10 17:33:54 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 18:42:02 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_map	*init_map(void)
 	map->center_y = HEIGHT / 2;
 	map->shift_y = 0;
 	map->shift_x = 0;
+	map->angle = 0.523599;
 	map->z = NULL;
 	map->color = NULL;
 	return (map);

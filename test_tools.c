@@ -3,10 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   test_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/12/11 22:57:32 by fprovolo         ###   ########.fr       */
+=======
+<<<<<<< HEAD
+/*   Updated: 2019/12/11 21:19:49 by jmalik           ###   ########.fr       */
+=======
+/*   Updated: 2019/12/11 17:15:02 by fprovolo         ###   ########.fr       */
+>>>>>>> 0db513214b6783065418c20613c9d6df133fcea2
+>>>>>>> 540a6e02cfd6f57962247cbd1b8582808eabab91
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +46,15 @@ int		ft_key(int key)
 {
 	return (key == 126 || key == 125 || key == 123 || key == 124 \
 	|| key == 24 || key == 69 || key == 27 || key == 78 || \
+	key == 86 || key == 88 || key == 21 || key == 22 || \
 	key == 84 || key == 19 || key == 91 || key == 28 || key == 53);
 }
 
 void	made_key(int key, t_fdf *fdf)
 {
+	int		i;
+
+	i = 0;
 	if (key == 126)
 		fdf->map->shift_y -= 10;
 	if (key == 125)
@@ -59,6 +71,10 @@ void	made_key(int key, t_fdf *fdf)
 		fdf->map->scale_z -= 2;
 	if (key == 91 || key == 28)
 		fdf->map->scale_z += 2;
+	if (key == 86 || key == 21)
+		fdf->map->angle += 0.05;
+	if (key == 88 || key == 22)
+		fdf->map->angle -= 0.05;
 	if (key == 53)
 	{
 		mlx_destroy_image(fdf->mlx, fdf->img_ptr);
@@ -70,7 +86,12 @@ int		key_pressed(int key, t_fdf *fdf)
 {
 	if (ft_key(key))
 	{
+<<<<<<< HEAD
 	//	mlx_clear_window(fdf->mlx, fdf->win);	
+=======
+		mlx_clear_window(fdf->mlx, fdf->win);	
+		ft_drow_menu(*fdf);
+>>>>>>> 540a6e02cfd6f57962247cbd1b8582808eabab91
 		made_key(key, fdf);
 		push_map(fdf);
 	
