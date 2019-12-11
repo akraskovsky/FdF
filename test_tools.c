@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/09 14:13:26 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 13:15:19 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,4 @@ void    print_map(t_map *map)
 		printf("\n");
 		y++;
 	}
-}
-
-int		key_pressed(int key, void *param)
-{
-	void	*dummy;
-	
-	dummy = param;
-	ft_putnbr(key);
-	ft_putendl(" was pressed");
-	if (key == 53)
-		exit(0);
-	return (0);
 }

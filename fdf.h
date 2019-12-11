@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/09 12:13:00 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 15:10:42 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # define HEIGHT		1080
 # define WIDTH		1920
-# define DEF_COLOR	0xFFFFFF
+# define DEF_COLOR	0x008888
 # define BG_COLOR	0x000000
 # define MENU_COLOR	0x0F0F0F
 

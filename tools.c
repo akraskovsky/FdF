@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:23:21 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/30 17:52:47 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 13:15:19 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,16 @@ double  percent(t_pix start, t_pix finish, t_pix point)
 int		ft_abs(int x)
 {
 	return ((x < 0) ? -x : x);
+}
+
+int		key_pressed(int key, void *param)
+{
+	void	*dummy;
+	
+	dummy = param;
+	ft_putnbr(key);
+	ft_putendl(" was pressed");
+	if (key == 53)
+		exit(0);
+	return (0);
 }
