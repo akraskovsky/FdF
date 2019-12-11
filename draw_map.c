@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 17:15:02 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 17:21:10 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void draw_map(t_map *map)
 	if (!(fdf->win = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF project")))
 		terminate("Initialization error");
 	fdf->map = map;
-	fdf->img = mlx_new_image(mlx)
+	fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT);
 
 	push_map(fdf);
 	mlx_key_hook(fdf->win, key_pressed, fdf);
