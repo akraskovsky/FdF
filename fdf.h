@@ -6,7 +6,11 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/12/11 18:22:46 by jmalik           ###   ########.fr       */
+=======
+/*   Updated: 2019/12/11 15:10:42 by fprovolo         ###   ########.fr       */
+>>>>>>> 0db513214b6783065418c20613c9d6df133fcea2
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +26,7 @@
 
 # define HEIGHT		1080
 # define WIDTH		1920
-# define DEF_COLOR	0xFFFFFF
+# define DEF_COLOR	0x008888
 # define BG_COLOR	0x000000
 # define MENU_COLOR	0x0F0F0F
 

@@ -6,7 +6,11 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:23:21 by fprovolo          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/12/11 18:25:10 by jmalik           ###   ########.fr       */
+=======
+/*   Updated: 2019/12/11 17:26:26 by fprovolo         ###   ########.fr       */
+>>>>>>> 0db513214b6783065418c20613c9d6df133fcea2
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +58,13 @@ double  percent(t_pix start, t_pix finish, t_pix point)
 int		ft_abs(int x)
 {
 	return ((x < 0) ? -x : x);
+}
+
+int		key_pressed(int key, t_fdf *fdf)
+{
+	ft_putnbr(key);
+	ft_putendl(" was pressed");
+	if (key == 53)
+		exit(0);
+	return (0);
 }
