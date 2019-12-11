@@ -16,8 +16,8 @@ t_pix get_point(t_map *map, int x, int y)
 {
 	t_pix point;
 
-	point.x = (x - map->size_x / 2) * map->scale_xy;
-	point.y = (y - map->size_y / 2) * map->scale_xy;
+	point.x = ((x - map->size_x / 2) * map->scale_xy) + map->shift_x;
+	point.y = ((y - map->size_y / 2) * map->scale_xy) + map->shift_y;
 	point.z = map->z[y * map->size_x + x] * map->scale_z;
 	point.color = map->color[y * map->size_x + x];
 	return (point);
@@ -43,7 +43,7 @@ t_pix	iso(t_pix pix)
 	pix.y = (pix.x + pix.y) * sin(0.8) - pix.z;
 	return (pix);
 }
-void draw_line(t_fdf *fdf, t_pix start, t_pix end)
+void 	draw_line(t_fdf *fdf, t_pix start, t_pix end)
 {
 	t_pix delta;
 	t_pix sign;
@@ -77,10 +77,6 @@ void draw_line(t_fdf *fdf, t_pix start, t_pix end)
 void draw_map(t_map *map)
 {
 	t_fdf *fdf;
-	//	t_pix	start;
-	//	t_pix	end;
-	int x;
-	int y;
 
 	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
 		terminate("Initialization error");
@@ -90,30 +86,8 @@ void draw_map(t_map *map)
 		terminate("Initialization error");
 	fdf->map = map;
 
-	y = 0;
-	while (y < map->size_y)
-	{
-		x = 0;
-		while (x < map->size_x)
-		{
-			if (x < map->size_x - 1)
-				draw_line(fdf, iso(get_point(map, x, y)), iso(get_point(map, x + 1, y)));
-			if (y < map->size_y - 1)	
-				draw_line(fdf, iso(get_point(map, x, y)), iso(get_point(map, x, y + 1)));
-			printf("x=%d, y=%d, z=%d\n", get_point(map, x, y).x, get_point(map, x, y).y, get_point(map, x, y).z);
-			x++;
-		}
-		y++;
-	}
-	/*	
-	start.x = 10;
-	start.y = 10;
-	start.color = 0xFF0000;
-	end.x = 1200;
-	end.y = 600;
-	end.color = 0x00FF00;
-	draw_line(fdf, start, end);*/
-	mlx_key_hook(fdf->win, key_pressed, (void *)0);
+	push_map(fdf);
+	mlx_key_hook(fdf->win, key_pressed, fdf);
 	mlx_loop(fdf->mlx);
 	return;
 }

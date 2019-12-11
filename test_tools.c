@@ -34,15 +34,44 @@ void    print_map(t_map *map)
 		y++;
 	}
 }
-
-int		key_pressed(int key, void *param)
+int		ft_key(int key)
 {
-	void	*dummy;
-	
-	dummy = param;
-	ft_putnbr(key);
-	ft_putendl(" was pressed");
+	return (key == 126 || key == 125 || key == 123 || key == 124 \
+	|| key == 24 || key == 69 || key == 27 || key == 78 || \
+	key == 84 || key == 19 || key == 91 || key == 28 || key == 53);
+}
+
+void	made_key(int key, t_fdf *fdf)
+{
+	if (key == 126)
+		fdf->map->shift_y -= 10;
+	if (key == 125)
+		fdf->map->shift_y += 10;
+	if (key == 124)
+		fdf->map->shift_x += 10;
+	if (key == 123)
+		fdf->map->shift_x -= 10;
+	if (key == 24 || key == 69)
+		fdf->map->scale_xy += 3;
+	if (key == 27 || key == 78)
+		fdf->map->scale_xy -= 3;
+	if (key == 84 || key == 19)
+		fdf->map->scale_z -= 2;
+	if (key == 91 || key == 28)
+		fdf->map->scale_z += 2;
 	if (key == 53)
 		exit(0);
+}
+
+int		key_pressed(int key, t_fdf *fdf)
+{
+	if (ft_key(key))
+	{
+		mlx_clear_window(fdf->mlx, fdf->win);	
+		made_key(key, fdf);
+		push_map(fdf);
+		ft_putnbr(key);
+		ft_putendl(" was pressed");
+	}	
 	return (0);
 }

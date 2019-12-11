@@ -12,6 +12,27 @@
 
 #include "fdf.h"
 
+void	push_map(t_fdf *fdf)
+{
+	int x;
+	int	y;
+
+	y = 0;
+	while (y < fdf->map->size_y)
+	{
+		x = 0;
+		while (x < fdf->map->size_x)
+		{
+			if (x < fdf->map->size_x - 1)
+				draw_line(fdf, iso(get_point(fdf->map, x, y)), iso(get_point(fdf->map, x + 1, y)));
+			if (y < fdf->map->size_y - 1)	
+				draw_line(fdf, iso(get_point(fdf->map, x, y)), iso(get_point(fdf->map, x, y + 1)));
+			x++;
+		}
+		y++;
+	}
+}
+
 double  percent(t_pix start, t_pix finish, t_pix point)
 {
 	double	len;

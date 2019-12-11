@@ -26,6 +26,8 @@ t_map	*init_map(void)
 	map->scale_z = 1;
 	map->center_x = WIDTH / 2;
 	map->center_y = HEIGHT / 2;
+	map->shift_y = 0;
+	map->shift_x = 0;
 	map->z = NULL;
 	map->color = NULL;
 	return (map);
