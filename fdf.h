@@ -50,6 +50,8 @@ typedef struct		s_map
 	int				min_z;
 	int				scale_xy;
 	int				scale_z;
+	int				shift_x;
+	int				shift_y;
 	int				center_x;
 	int				center_y;
 	int				*z;
@@ -73,7 +75,7 @@ void				clean_map(t_map *map);
 void				clean_points(char **points);
 void				print_map(t_map *map);
 void				draw_map(t_map *map);
-int					key_pressed(int key, void *param);
+int					key_pressed(int key, t_fdf *fdf);
 int					ft_abs(int x);
 double  			percent(t_pix start, t_pix finish, t_pix point);
 void				terminate(char *message);
@@ -81,5 +83,8 @@ void    			push_stack(t_point *newpoint, t_point **points_stack);
 t_point				*pop_stack(t_point **points_stack);
 void				create_map_array(t_map	*map, t_point **points_stack);
 t_pix				get_point(t_map *map, int x, int y);
+void				push_map(t_fdf *fdf);
+t_pix				iso(t_pix pix);
+void 				draw_line(t_fdf *fdf, t_pix start, t_pix end);
 
 #endif
