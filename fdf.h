@@ -3,20 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/12/11 22:46:35 by fprovolo         ###   ########.fr       */
-=======
-<<<<<<< HEAD
-/*   Updated: 2019/12/11 18:22:46 by jmalik           ###   ########.fr       */
-=======
-/*   Updated: 2019/12/11 15:10:42 by fprovolo         ###   ########.fr       */
->>>>>>> 0db513214b6783065418c20613c9d6df133fcea2
->>>>>>> 540a6e02cfd6f57962247cbd1b8582808eabab91
+/*   Updated: 2019/12/11 23:53:06 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef FDF_H
 # define FDF_H
@@ -101,13 +94,10 @@ t_pix				get_point(t_map *map, int x, int y);
 void				push_map(t_fdf *fdf);
 t_pix				iso(t_pix pix, t_fdf *fdf);
 void 				draw_line(t_fdf *fdf, t_pix start, t_pix end);
-<<<<<<< HEAD
 t_fdf				*init_fdf(t_map *map);
 void				test_of_colors(t_fdf *fdf);
 void				pixel_to_image(t_fdf *fdf, t_pix pix);
 void				fill_background(t_fdf *fdf);
-=======
 void    			ft_drow_menu(t_fdf p);
->>>>>>> 540a6e02cfd6f57962247cbd1b8582808eabab91
 
 #endif
