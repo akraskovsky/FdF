@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:23:21 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 17:26:26 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 22:57:32 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	push_map(t_fdf *fdf)
 	int x;
 	int	y;
 
+	fill_background(fdf);
 	y = 0;
 	while (y < fdf->map->size_y)
 	{
@@ -31,6 +32,7 @@ void	push_map(t_fdf *fdf)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img_ptr, 0, 0);
 }
 
 double  percent(t_pix start, t_pix finish, t_pix point)
@@ -54,13 +56,4 @@ double  percent(t_pix start, t_pix finish, t_pix point)
 int		ft_abs(int x)
 {
 	return ((x < 0) ? -x : x);
-}
-
-int		key_pressed(int key, t_fdf *fdf)
-{
-	ft_putnbr(key);
-	ft_putendl(" was pressed");
-	if (key == 53)
-		exit(0);
-	return (0);
 }

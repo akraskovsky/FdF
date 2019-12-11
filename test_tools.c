@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 17:15:02 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 22:57:32 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,33 @@ void	made_key(int key, t_fdf *fdf)
 	if (key == 91 || key == 28)
 		fdf->map->scale_z += 2;
 	if (key == 53)
+	{
+		mlx_destroy_image(fdf->mlx, fdf->img_ptr);
 		exit(0);
+	}
 }
 
 int		key_pressed(int key, t_fdf *fdf)
 {
 	if (ft_key(key))
 	{
-		mlx_clear_window(fdf->mlx, fdf->win);	
+	//	mlx_clear_window(fdf->mlx, fdf->win);	
 		made_key(key, fdf);
 		push_map(fdf);
+	
 		ft_putnbr(key);
 		ft_putendl(" was pressed");
 	}	
 	return (0);
+}
+
+void	test_of_colors(t_fdf *fdf)
+{
+	int	color;
+	int	color2;
+
+	color = 0xFF8844;
+	color2 = mlx_get_color_value(fdf->mlx, color);
+	printf("*** color test ***\norigin: %10X\nnew: %10X\nendian = %d, bpp = %d, line = %d\n-------\n", 
+			color, color2, fdf->endian, fdf->bits_per_pixel, fdf->size_line);
 }

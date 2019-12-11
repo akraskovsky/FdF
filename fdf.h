@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 15:10:42 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 22:46:35 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@
 # define HEIGHT		1080
 # define WIDTH		1920
 # define DEF_COLOR	0x008888
-# define BG_COLOR	0x000000
+# define BG_COLOR	0x000022
 # define MENU_COLOR	0x0F0F0F
+# define MENU_W		200
+# define MENU_H		300
 
 typedef struct		s_pix
 {
@@ -62,8 +64,12 @@ typedef struct		s_fdf
 {
 	void			*mlx;
 	void			*win;
-	void			*img;
+	void			*img_ptr;
+	char			*image;
 	t_map			*map;
+	int				bits_per_pixel;
+	int				size_line;
+	int				endian;
 }					t_fdf;
 
 t_map				*read_map(int fd);
@@ -86,5 +92,9 @@ t_pix				get_point(t_map *map, int x, int y);
 void				push_map(t_fdf *fdf);
 t_pix				iso(t_pix pix);
 void 				draw_line(t_fdf *fdf, t_pix start, t_pix end);
+t_fdf				*init_fdf(t_map *map);
+void				test_of_colors(t_fdf *fdf);
+void				pixel_to_image(t_fdf *fdf, t_pix pix);
+void				fill_background(t_fdf *fdf);
 
 #endif
