@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 16:02:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/09 14:19:00 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 18:21:16 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int main(int argc, char **argv)
 {
 	int     fd;
 	t_map	*map;
-	int		x;  // for test
-	int		y;	// for test
 
 	if (argc != 2)
 		terminate("Usage: ./fdf map_filename");
@@ -27,10 +25,6 @@ int main(int argc, char **argv)
 	if ((map = read_map(fd)) == NULL)
 		terminate("Map error");
 	print_map(map);
-//	Test:
-	x = 2;
-	y = 3;
-	printf("\nx=%d, y=%d\nx=%d, y=%5d, z=9%d, color=%d\n", x, y, get_point(map, x, y).x, get_point(map, x, y).y, get_point(map, x, y).z, get_point(map, x, y).color);
 	draw_map(map);
 	clean_map(map);
 	close(fd);

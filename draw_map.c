@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/09 12:19:23 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 19:42:18 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int color(t_pix start, t_pix end, t_pix curr)
 	//	printf("percent=%f\tred=%X green=%X blue=%X\n", pcnt, red, green, blue);
 	return ((red << 16) + (green << 8) + blue);
 }
-t_pix	iso(t_pix pix)
+t_pix	iso(t_pix pix, t_fdf *fdf)
 {
-	pix.x = (pix.x - pix.y) * cos(0.8);
-	pix.y = (pix.x + pix.y) * sin(0.8) - pix.z;
+	pix.x = (pix.x - pix.y) * cos(fdf->map->angle);
+	pix.y = (pix.x + pix.y) * sin(fdf->map->angle) - pix.z;
 	return (pix);
 }
 void 	draw_line(t_fdf *fdf, t_pix start, t_pix end)
@@ -87,6 +87,7 @@ void draw_map(t_map *map)
 	fdf->map = map;
 
 	push_map(fdf);
+	ft_drow_menu(*fdf);
 	mlx_key_hook(fdf->win, key_pressed, fdf);
 	mlx_loop(fdf->mlx);
 	return;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/09 12:13:00 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 18:22:46 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct		s_map
 	int				center_y;
 	int				*z;
 	int				*color;
+	double			angle;
 }					t_map;
 
 typedef struct		s_fdf
@@ -84,7 +85,8 @@ t_point				*pop_stack(t_point **points_stack);
 void				create_map_array(t_map	*map, t_point **points_stack);
 t_pix				get_point(t_map *map, int x, int y);
 void				push_map(t_fdf *fdf);
-t_pix				iso(t_pix pix);
+t_pix				iso(t_pix pix, t_fdf *fdf);
 void 				draw_line(t_fdf *fdf, t_pix start, t_pix end);
+void    			ft_drow_menu(t_fdf p);
 
 #endif

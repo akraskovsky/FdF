@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:23:21 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/11/30 17:52:47 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/11 18:25:10 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	push_map(t_fdf *fdf)
 		while (x < fdf->map->size_x)
 		{
 			if (x < fdf->map->size_x - 1)
-				draw_line(fdf, iso(get_point(fdf->map, x, y)), iso(get_point(fdf->map, x + 1, y)));
+				draw_line(fdf, iso(get_point(fdf->map, x, y), fdf), iso(get_point(fdf->map, x + 1, y), fdf));
 			if (y < fdf->map->size_y - 1)	
-				draw_line(fdf, iso(get_point(fdf->map, x, y)), iso(get_point(fdf->map, x, y + 1)));
+				draw_line(fdf, iso(get_point(fdf->map, x, y), fdf), iso(get_point(fdf->map, x, y + 1), fdf));
 			x++;
 		}
 		y++;
