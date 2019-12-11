@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 23:58:16 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/12 00:09:35 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void 	draw_line(t_fdf *fdf, t_pix start, t_pix end)
 	while (curr.x != end.x || curr.y != end.y)
 	{
 //		mlx_pixel_put(fdf->mlx, fdf->win, curr.x + fdf->map->center_x, curr.y + fdf->map->center_y, color(start, end, curr));
+		curr.color = color(start, end, curr);
 		pixel_to_image(fdf, curr);
 		if ((error[1] = error[0] * 2) > -delta.y)
 		{

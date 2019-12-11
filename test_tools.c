@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 23:57:08 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/12 00:14:18 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int		key_pressed(int key, t_fdf *fdf)
 	if (ft_key(key))
 	{
 //		mlx_clear_window(fdf->mlx, fdf->win);	
-		ft_drow_menu(*fdf);
+//		ft_drow_menu(*fdf);
 		made_key(key, fdf);
 		push_map(fdf);
 	

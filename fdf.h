@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 23:53:06 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/12 00:17:24 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define DEF_COLOR	0x008888
 # define BG_COLOR	0x000022
 # define MENU_COLOR	0x0F0F0F
-# define MENU_W		200
-# define MENU_H		300
+# define MENU_W		400
+# define MENU_H		150
 
 typedef struct		s_pix
 {

@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:23:21 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 23:58:56 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/12 00:14:18 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	push_map(t_fdf *fdf)
 		y++;
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img_ptr, 0, 0);
+	ft_drow_menu(*fdf);
 }
 
 double  percent(t_pix start, t_pix finish, t_pix point)
