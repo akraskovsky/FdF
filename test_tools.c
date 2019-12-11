@@ -3,20 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   test_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/12/11 22:57:32 by fprovolo         ###   ########.fr       */
-=======
-<<<<<<< HEAD
-/*   Updated: 2019/12/11 21:19:49 by jmalik           ###   ########.fr       */
-=======
-/*   Updated: 2019/12/11 17:15:02 by fprovolo         ###   ########.fr       */
->>>>>>> 0db513214b6783065418c20613c9d6df133fcea2
->>>>>>> 540a6e02cfd6f57962247cbd1b8582808eabab91
+/*   Updated: 2019/12/11 23:57:08 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "fdf.h"
 
@@ -86,12 +79,8 @@ int		key_pressed(int key, t_fdf *fdf)
 {
 	if (ft_key(key))
 	{
-<<<<<<< HEAD
-	//	mlx_clear_window(fdf->mlx, fdf->win);	
-=======
-		mlx_clear_window(fdf->mlx, fdf->win);	
+//		mlx_clear_window(fdf->mlx, fdf->win);	
 		ft_drow_menu(*fdf);
->>>>>>> 540a6e02cfd6f57962247cbd1b8582808eabab91
 		made_key(key, fdf);
 		push_map(fdf);
 	

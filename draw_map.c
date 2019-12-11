@@ -3,20 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/12/11 22:57:32 by fprovolo         ###   ########.fr       */
-=======
-<<<<<<< HEAD
-/*   Updated: 2019/12/11 19:42:18 by jmalik           ###   ########.fr       */
-=======
-/*   Updated: 2019/12/11 17:21:10 by fprovolo         ###   ########.fr       */
->>>>>>> 0db513214b6783065418c20613c9d6df133fcea2
->>>>>>> 540a6e02cfd6f57962247cbd1b8582808eabab91
+/*   Updated: 2019/12/11 23:58:16 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "fdf.h"
 
@@ -44,12 +37,7 @@ int color(t_pix start, t_pix end, t_pix curr)
 	blue = (start.color & 0xFF) + ((end.color & 0xFF) - (start.color & 0xFF)) * pcnt;
 	return ((red << 16) + (green << 8) + blue);
 }
-<<<<<<< HEAD
 t_pix	iso(t_pix pix, t_fdf *fdf)
-=======
-
-t_pix	iso(t_pix pix)
->>>>>>> 0db513214b6783065418c20613c9d6df133fcea2
 {
 	pix.x = (pix.x - pix.y) * cos(fdf->map->angle);
 	pix.y = (pix.x + pix.y) * sin(fdf->map->angle) - pix.z;
