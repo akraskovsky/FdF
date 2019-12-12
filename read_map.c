@@ -6,7 +6,7 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 18:42:02 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/12 18:10:39 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ t_map	*init_map(void)
 	map->max_z = 0;
 	map->scale_xy = 1;
 	map->scale_z = 1;
-	map->center_x = WIDTH / 2;
-	map->center_y = HEIGHT / 2;
+	map->win_x = WIDTH;
+	map->win_y = HEIGHT;
+	map->center_x = map->win_x / 2;
+	map->center_y = map->win_y / 2;
 	map->shift_y = 0;
 	map->shift_x = 0;
 	map->angle = 0.523599;

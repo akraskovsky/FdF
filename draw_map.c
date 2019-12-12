@@ -6,22 +6,22 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/12/11 19:42:18 by jmalik           ###   ########.fr       */
-=======
-/*   Updated: 2019/12/11 17:21:10 by fprovolo         ###   ########.fr       */
->>>>>>> 0db513214b6783065418c20613c9d6df133fcea2
+/*   Updated: 2019/12/12 15:26:58 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "fdf.h"
 
 t_pix get_point(t_map *map, int x, int y)
 {
 	t_pix point;
+//	point.x = ((x - map->size_x / 2) * map->scale_xy) + map->shift_x;
+//	point.y = ((y - map->size_y / 2) * map->scale_xy) + map->shift_y;
+	point.x = ((x - map->size_x / 2) * map->scale_xy);
+	point.y = ((y - map->size_y / 2) * map->scale_xy);
 
-	point.x = ((x - map->size_x / 2) * map->scale_xy) + map->shift_x;
-	point.y = ((y - map->size_y / 2) * map->scale_xy) + map->shift_y;
+
 	point.z = map->z[y * map->size_x + x] * map->scale_z;
 	point.color = map->color[y * map->size_x + x];
 	return (point);
@@ -40,17 +40,13 @@ int color(t_pix start, t_pix end, t_pix curr)
 	blue = (start.color & 0xFF) + ((end.color & 0xFF) - (start.color & 0xFF)) * pcnt;
 	return ((red << 16) + (green << 8) + blue);
 }
-<<<<<<< HEAD
 t_pix	iso(t_pix pix, t_fdf *fdf)
-=======
-
-t_pix	iso(t_pix pix)
->>>>>>> 0db513214b6783065418c20613c9d6df133fcea2
 {
 	pix.x = (pix.x - pix.y) * cos(fdf->map->angle);
 	pix.y = (pix.x + pix.y) * sin(fdf->map->angle) - pix.z;
 	return (pix);
 }
+
 void 	draw_line(t_fdf *fdf, t_pix start, t_pix end)
 {
 	t_pix delta;
@@ -67,7 +63,9 @@ void 	draw_line(t_fdf *fdf, t_pix start, t_pix end)
 	curr = start;
 	while (curr.x != end.x || curr.y != end.y)
 	{
-		mlx_pixel_put(fdf->mlx, fdf->win, curr.x + fdf->map->center_x, curr.y + fdf->map->center_y, color(start, end, curr));
+//		mlx_pixel_put(fdf->mlx, fdf->win, curr.x + fdf->map->center_x, curr.y + fdf->map->center_y, color(start, end, curr));
+		curr.color = color(start, end, curr);
+		pixel_to_image(fdf, curr);
 		if ((error[1] = error[0] * 2) > -delta.y)
 		{
 			error[0] -= delta.y;
@@ -83,17 +81,11 @@ void 	draw_line(t_fdf *fdf, t_pix start, t_pix end)
 
 void draw_map(t_map *map)
 {
-	t_fdf *fdf;
+	t_fdf	*fdf;
 
-	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
-		terminate("Initialization error");
-	if (!(fdf->mlx = mlx_init()))
-		terminate("Initialization error");
-	if (!(fdf->win = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF project")))
-		terminate("Initialization error");
-	fdf->map = map;
-	fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT);
-
+	fdf = init_fdf(map);
+	test_of_colors(fdf);  // test color
+//	fill_background(fdf);
 	push_map(fdf);
 	ft_drow_menu(*fdf);
 	mlx_key_hook(fdf->win, key_pressed, fdf);

@@ -6,9 +6,10 @@
 #    By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/20 10:53:01 by fprovolo          #+#    #+#              #
-#    Updated: 2019/12/11 17:42:06 by jmalik           ###   ########.fr        #
+#    Updated: 2019/12/12 16:53:41 by jmalik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME = fdf
 
@@ -17,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC_PATH = ./
 SRC_NAME = main.c read_map.c clean_tools.c test_tools.c draw_map.c tools.c \
-			stack.c ft_drow_menu.c
+			stack.c init_fdf.c ft_drow_menu.c ft_resize_win.c
 OBJ_PATH = ./objects/
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
