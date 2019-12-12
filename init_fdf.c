@@ -6,7 +6,7 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:20:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 18:42:57 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/12 20:58:18 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	pixel_to_image(t_fdf *fdf, t_pix pix)
 {
 	int	i;
 
+//	if (fdf->map->alt_col > 0)
+//		pix.color = get_alt_color(fdf->map, pix.z);
 	pix.x += fdf->map->center_x + fdf->map->shift_x;
 	pix.y += fdf->map->center_y + fdf->map->shift_y;
 	if ((0 <= pix.x && pix.x < fdf->map->win_x && 0 <= pix.y && pix.y < fdf->map->win_y) && (pix.y > MENU_H || pix.x > MENU_W))

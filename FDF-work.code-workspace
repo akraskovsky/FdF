@@ -6,7 +6,8 @@
 	],
 	"settings": {
 		"files.associations": {
-			"cstdio": "c"
+			"cstdio": "c",
+			"complex": "c"
 		},
 		"editor.fontSize": 18
 	}

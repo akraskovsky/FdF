@@ -6,7 +6,7 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 19:41:02 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/12 20:58:18 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		ft_key(int key)
 	key == 86 || key == 88 || key == 21 || key == 22 || \
 	key == 6 || key == 7 || key == 0 || key == 1 || key == 3 || \
 	key == 84 || key == 19 || key == 91 || key == 28 || key == 53 \
-	|| key == 49 || key == 23);
+	|| key == 49 || key == 23 || key == 257);
 }
 
 void	made_key(int key, t_fdf *fdf)
@@ -81,6 +81,13 @@ void	made_key(int key, t_fdf *fdf)
 		fdf->map->angle -= 0.05;
 	if (key == 6 || key == 7 || key == 0 || key == 1 || key == 3)
 		new_window(key, fdf);	
+	if (key == 257)     // =Shift - for colors
+	{
+		if (fdf->map->alt_col == 0)
+			fdf->map->alt_col = 1;
+		else
+			fdf->map->alt_col = 0;
+	}		
 	if (key == 53)
 	{
 		mlx_destroy_image(fdf->mlx, fdf->img_ptr);

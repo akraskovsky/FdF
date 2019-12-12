@@ -6,7 +6,7 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 18:10:39 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/12 20:58:18 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ t_map	*init_map(void)
 	map->angle = 0.523599;
 	map->z = NULL;
 	map->color = NULL;
+	map->top_color = UP_COLOR;
+	map->bottom_color = BG_COLOR;
+	map->alt_col = 0;
 	return (map);
 }
 
