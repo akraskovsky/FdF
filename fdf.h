@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 11:12:32 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/12 20:39:40 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@
 
 # define HEIGHT		1080
 # define WIDTH		1920
-# define DEF_COLOR	0x00AAAA
+# define DEF_COLOR	0xFFFFFF
 # define BG_COLOR	0x000022
 # define MENU_COLOR	0x0F0F0F
+# define UP_COLOR	0xFFFFFF
+# define DOWN_COLOR	0xFF00FF
 # define MENU_W		365
 # define MENU_H		160
 
@@ -57,6 +59,9 @@ typedef struct		s_map
 	int				shift_y;
 	int				center_x;
 	int				center_y;
+	int				top_color;
+	int				bottom_color;
+	unsigned char	alt_col;
 	int				*z;
 	int				*color;
 	double			angle;
@@ -99,5 +104,6 @@ void				test_of_colors(t_fdf *fdf);
 void				pixel_to_image(t_fdf *fdf, t_pix pix);
 void				fill_background(t_fdf *fdf);
 void    			ft_drow_menu(t_fdf p);
+int					get_alt_color(t_map *map, int z);
 
 #endif

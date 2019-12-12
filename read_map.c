@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/11 18:42:02 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/12 20:23:32 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ t_map	*init_map(void)
 	map->angle = 0.523599;
 	map->z = NULL;
 	map->color = NULL;
+	map->top_color = UP_COLOR;
+	map->bottom_color = BG_COLOR;
+	map->alt_col = 0;
 	return (map);
 }
 

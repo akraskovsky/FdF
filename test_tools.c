@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 11:25:53 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/12 20:45:18 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_key(int key)
 	return (key == 126 || key == 125 || key == 123 || key == 124 \
 	|| key == 24 || key == 69 || key == 27 || key == 78 || \
 	key == 86 || key == 88 || key == 21 || key == 22 || \
-	key == 84 || key == 19 || key == 91 || key == 28 || key == 53);
+	key == 84 || key == 19 || key == 91 || key == 28 || key == 53 || key == 257);
 }
 
 void	made_key(int key, t_fdf *fdf)
@@ -76,6 +76,13 @@ void	made_key(int key, t_fdf *fdf)
 		fdf->map->angle += 0.05;
 	if (key == 88 || key == 22)
 		fdf->map->angle -= 0.05;
+	if (key == 257)     // =Shift - for colors
+	{
+		if (fdf->map->alt_col == 0)
+			fdf->map->alt_col = 1;
+		else
+			fdf->map->alt_col = 0;
+	}		
 	if (key == 53)
 	{
 		mlx_destroy_image(fdf->mlx, fdf->img_ptr);

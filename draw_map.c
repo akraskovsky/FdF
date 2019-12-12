@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 11:09:48 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/12 20:15:39 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@
 t_pix get_point(t_map *map, int x, int y)
 {
 	t_pix point;
-//	point.x = ((x - map->size_x / 2) * map->scale_xy) + map->shift_x;
-//	point.y = ((y - map->size_y / 2) * map->scale_xy) + map->shift_y;
 	point.x = ((x - map->size_x / 2) * map->scale_xy);
 	point.y = ((y - map->size_y / 2) * map->scale_xy);
 
-
 	point.z = map->z[y * map->size_x + x] * map->scale_z;
-	point.color = map->color[y * map->size_x + x];
+	if (map->alt_col > 0)
+	{
+//		printf("ALT color!\n");
+		point.color = get_alt_color(map, point.z);
+	}
+	else
+		point.color = map->color[y * map->size_x + x];
 	return (point);
 }
 
