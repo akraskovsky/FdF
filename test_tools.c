@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 00:14:18 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/12 11:25:53 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,17 @@ void	made_key(int key, t_fdf *fdf)
 	if (key == 123)
 		fdf->map->shift_x -= 10;
 	if (key == 24 || key == 69)
-		fdf->map->scale_xy += 3;
+	{
+		fdf->map->scale_xy += 2;
+		fdf->map->scale_z += 1;
+	}
 	if (key == 27 || key == 78)
-		fdf->map->scale_xy -= 3;
+	{
+		if (fdf->map->scale_xy > 2)
+			fdf->map->scale_xy -= 2;
+		if (fdf->map->scale_z >1)
+			fdf->map->scale_z -= 1;
+	}
 	if (key == 84 || key == 19)
 		fdf->map->scale_z -= 2;
 	if (key == 91 || key == 28)

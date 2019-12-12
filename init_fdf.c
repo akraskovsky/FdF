@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:20:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 00:22:59 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/12 11:09:41 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	pixel_to_image(t_fdf *fdf, t_pix pix)
 {
 	int	i;
 
-	pix.x += fdf->map->center_x;
-	pix.y += fdf->map->center_y;
-	if ((pix.x > MENU_W && pix.x < WIDTH) || (pix.y > MENU_H && pix.y < HEIGHT))
+	pix.x += fdf->map->center_x + fdf->map->shift_x;
+	pix.y += fdf->map->center_y + fdf->map->shift_y;
+	if ((0 <= pix.x && pix.x < WIDTH && 0 <= pix.y && pix.y < HEIGHT) && (pix.y > MENU_H || pix.x > MENU_W))
 	{
 		i = pix.x * fdf->bits_per_pixel / 8 + pix.y * fdf->size_line;
 		fdf->image[i] = pix.color;
