@@ -6,7 +6,7 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 20:58:18 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/14 18:44:50 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@
 # define DOWN_COLOR	0xFF00FF
 # define MENU_W		365
 # define MENU_H		160
+# define MOUSE_L_BUT	1
+# define MOUSE_R_BUT	2
+# define MOUSE_M_BUT	3
+# define MOUSE_SCROLL_UP	4
+# define MOUSE_SCROLL_DOWN	5
+
+typedef enum
+{
+	false,
+	true
+}	t_bool;
 
 typedef struct		s_pix
 {
@@ -69,17 +80,29 @@ typedef struct		s_map
 	double			angle;
 }					t_map;
 
+typedef  struct 	s_mouse
+{
+	char 			is_pressed;
+	int 			x;
+	int 			y;
+	int 			previous_x;
+	int 			previous_y;
+} 					t_mouse;
+
 typedef struct		s_fdf
 {
 	void			*mlx;
 	void			*win;
 	void			*img_ptr;
 	char			*image;
-	t_map			*map;
 	int				bits_per_pixel;
 	int				size_line;
 	int				endian;
+	t_mouse			*mouse;
+	t_map			*map;
 }					t_fdf;
+
+
 
 t_map				*read_map(int fd);
 t_map				*init_map(void);
@@ -108,5 +131,10 @@ void				fill_background(t_fdf *fdf);
 void    			ft_drow_menu(t_fdf p);
 void				new_window(int key, t_fdf *fdf);
 int					get_alt_color(t_map *map, int z);
+void				ft_controls(t_fdf *fdf);
+int					ft_press_mouse(int button, int x, int y, void *param);
+int					ft_mouse_release(int button, int x, int y, void *param);
+int					ft_mmouse(int x, int y, void *param);
+void				ft_scale(int key, t_fdf *fdf);
 
 #endif

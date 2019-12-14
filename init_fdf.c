@@ -6,7 +6,7 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:20:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 20:58:18 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/14 15:21:21 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_fdf	*init_fdf(t_map *map)
 		terminate("Initialization error");
 	if (!(fdf->image = mlx_get_data_addr(fdf->img_ptr, &fdf->bits_per_pixel, &fdf->size_line, &fdf->endian)))
 		terminate("Initialization error");
+	if (!(fdf->mouse = (t_mouse *)ft_memalloc(sizeof(t_mouse))))
+		terminate("Initialization error");	
 	return (fdf);
 }
 

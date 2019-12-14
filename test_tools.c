@@ -6,7 +6,7 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 20:58:18 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/13 18:12:52 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,19 +97,13 @@ void	made_key(int key, t_fdf *fdf)
 
 int		key_pressed(int key, t_fdf *fdf)
 {
-//	if (ft_key(key))
-//	{
+	if (ft_key(key))
+	{
 		made_key(key, fdf);
 		push_map(fdf);
 		ft_putnbr(key);
 		ft_putendl(" was pressed");
-//	}	
-//	if (key == '5')
-//	{
-//		mlx_destroy_window(fdf->mlx, fdf->win);
-//		free(fdf);
-//		exit(0);
-//	}
+	}	
 	return (0);
 }
 	

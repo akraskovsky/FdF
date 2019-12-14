@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:23:21 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 00:14:18 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/14 15:03:34 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ double  percent(t_pix start, t_pix finish, t_pix point)
 	double	len;
 	double	current;
 
-	if (abs(finish.x - start.x) > abs(finish.y - start.y))
+	if (ft_abs(finish.x - start.x) > ft_abs(finish.y - start.y))
 	{
 		len = finish.x - start.x;
 		current = point.x - start.x;

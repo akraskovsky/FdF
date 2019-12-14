@@ -6,7 +6,7 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 16:23:50 by jmalik            #+#    #+#             */
-/*   Updated: 2019/12/12 19:03:53 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/13 18:04:21 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,12 @@ void	new_window(int key, t_fdf *fdf)
 {
 	change_window_size(key, fdf);
 	mlx_destroy_window(fdf->mlx, fdf->win);
-//	fdf->mlx = mlx_init();
 	fdf->win = mlx_new_window(fdf->mlx, fdf->map->win_x, fdf->map->win_y, "FdF project");
 	if (!(fdf->img_ptr = mlx_new_image(fdf->mlx, fdf->map->win_x, fdf->map->win_y)))
 		terminate("Initialization error");
 	if (!(fdf->image = mlx_get_data_addr(fdf->img_ptr, &fdf->bits_per_pixel, &fdf->size_line, &fdf->endian)))
 		terminate("Initialization error");
 	push_map(fdf);
-//	ft_drow_menu(*fdf);
-	mlx_key_hook(fdf->win, key_pressed, fdf);
+	ft_controls(fdf);
 	mlx_loop(fdf->mlx);
 }
