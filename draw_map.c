@@ -6,7 +6,7 @@
 /*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 20:58:18 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/13 18:11:08 by jmalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void draw_map(t_map *map)
 //	fill_background(fdf);
 	push_map(fdf);
 	ft_drow_menu(*fdf);
-	mlx_key_hook(fdf->win, key_pressed, fdf);
+	ft_controls(fdf);
 	mlx_loop(fdf->mlx);
 	return;
 }
