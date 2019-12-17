@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 14:48:14 by jmalik            #+#    #+#             */
-/*   Updated: 2019/12/14 18:59:28 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/17 15:44:22 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,22 @@ void	ft_rot_col(int key, t_fdf *fdf)
 	if (key == MOUSE_M_BUT)
 	{
 		if (fdf->map->alt_col == 0)
+		{
 			fdf->map->alt_col = 1;
+			fdf->map->top_color = UP_COLOR2;
+			fdf->map->bottom_color = DOWN_COLOR2;
+		}
+		else if (fdf->map->alt_col == 1)
+		{
+			fdf->map->alt_col = 2;
+			fdf->map->top_color = UP_COLOR;
+			fdf->map->bottom_color = DOWN_COLOR;
+		}
 		else
 			fdf->map->alt_col = 0;
 	}
 	if (key == MOUSE_R_BUT)
-		fdf->map->angle += 0.4;
+		fdf->map->angle_y += 0.4;
 	push_map(fdf);
 }
 

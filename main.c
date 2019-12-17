@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 16:02:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/12 15:25:53 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/17 15:13:15 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int main(int argc, char **argv)
 		terminate("File error");
 	if ((map = read_map(fd)) == NULL)
 		terminate("Map error");
-	print_map(map);
 	draw_map(map);
 	clean_map(map);
 	close(fd);

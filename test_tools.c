@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/13 18:12:52 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/17 15:26:20 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,77 +34,6 @@ void    print_map(t_map *map)
 		printf("\n");
 		y++;
 	}
-}
-int		ft_key(int key)
-{
-	return (key == 126 || key == 125 || key == 123 || key == 124 \
-	|| key == 24 || key == 69 || key == 27 || key == 78 || \
-	key == 86 || key == 88 || key == 21 || key == 22 || \
-	key == 6 || key == 7 || key == 0 || key == 1 || key == 3 || \
-	key == 84 || key == 19 || key == 91 || key == 28 || key == 53 \
-	|| key == 49 || key == 23 || key == 257);
-}
-
-void	made_key(int key, t_fdf *fdf)
-{
-	if (key == 126)
-		fdf->map->shift_y -= 10;
-	if (key == 125)
-		fdf->map->shift_y += 10;
-	if (key == 124)
-		fdf->map->shift_x += 10;
-	if (key == 123)
-		fdf->map->shift_x -= 10;
-	if (key == 24 || key == 69)
-	{
-		fdf->map->scale_xy += 2;
-		fdf->map->scale_z += 1;
-	}
-	if (key == 27 || key == 78)
-	{
-		if (fdf->map->scale_xy > 2)
-			fdf->map->scale_xy -= 2;
-		if (fdf->map->scale_z >1)
-			fdf->map->scale_z -= 1; 
-	}
-	if (key == 49)
-		fdf->map->angle = 0.0;
-	if (key == 23)
-		fdf->map->angle = 0.523599;	
-	if (key == 84 || key == 19)
-		fdf->map->scale_z -= 2;
-	if (key == 91 || key == 28)
-		fdf->map->scale_z += 2;
-	if (key == 86 || key == 21)
-		fdf->map->angle += 0.05;
-	if (key == 88 || key == 22)
-		fdf->map->angle -= 0.05;
-	if (key == 6 || key == 7 || key == 0 || key == 1 || key == 3)
-		new_window(key, fdf);	
-	if (key == 257)     // =Shift - for colors
-	{
-		if (fdf->map->alt_col == 0)
-			fdf->map->alt_col = 1;
-		else
-			fdf->map->alt_col = 0;
-	}		
-	if (key == 53)
-	{
-		mlx_destroy_image(fdf->mlx, fdf->img_ptr);
-		exit(0);
-	}
-}
-
-int		key_pressed(int key, t_fdf *fdf)
-{
-	if (ft_key(key))
-	{
-		made_key(key, fdf);
-		push_map(fdf);
-		ft_putnbr(key);
-		ft_putendl(" was pressed");
-	}	
-	return (0);
 }
 	
 void	test_of_colors(t_fdf *fdf)

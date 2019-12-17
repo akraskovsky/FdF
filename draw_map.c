@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/13 18:11:08 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/17 15:51:28 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ t_pix get_point(t_map *map, int x, int y)
 
 	point.z = map->z[y * map->size_x + x] * map->scale_z;
 	if (map->alt_col > 0)
-	{
-//		printf("ALT color!\n");
 		point.color = get_alt_color(map, point.z);
-	}
 	else
 		point.color = map->color[y * map->size_x + x];
 	return (point);
@@ -43,12 +40,6 @@ int color(t_pix start, t_pix end, t_pix curr)
 	blue = (start.color & 0xFF) + ((end.color & 0xFF) - (start.color & 0xFF)) * pcnt;
 	return ((red << 16) + (green << 8) + blue);
 }
-t_pix	iso(t_pix pix, t_fdf *fdf)
-{
-	pix.x = (pix.x - pix.y) * cos(fdf->map->angle);
-	pix.y = (pix.x + pix.y) * sin(fdf->map->angle) - pix.z;
-	return (pix);
-}
 
 void 	draw_line(t_fdf *fdf, t_pix start, t_pix end)
 {
@@ -62,11 +53,9 @@ void 	draw_line(t_fdf *fdf, t_pix start, t_pix end)
 	sign.x = (start.x < end.x) ? 1 : -1;
 	sign.y = (start.y < end.y) ? 1 : -1;
 	error[0] = delta.x - delta.y;
-//	mlx_pixel_put(fdf->mlx, fdf->win, end.x + fdf->map->center_x, end.y + fdf->map->center_y, end.color);
 	curr = start;
 	while (curr.x != end.x || curr.y != end.y)
 	{
-//		mlx_pixel_put(fdf->mlx, fdf->win, curr.x + fdf->map->center_x, curr.y + fdf->map->center_y, color(start, end, curr));
 		curr.color = color(start, end, curr);
 		pixel_to_image(fdf, curr);
 		if ((error[1] = error[0] * 2) > -delta.y)
@@ -87,8 +76,6 @@ void draw_map(t_map *map)
 	t_fdf	*fdf;
 
 	fdf = init_fdf(map);
-	test_of_colors(fdf);  // test color
-//	fill_background(fdf);
 	push_map(fdf);
 	ft_drow_menu(*fdf);
 	ft_controls(fdf);

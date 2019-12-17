@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 14:40:37 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/17 15:13:15 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ typedef struct		s_map
 	int				*color;
 	int				win_x;
 	int				win_y;
-	double			angle;
+	double			angle_x;
+	double			angle_y;
+	double			angle_z;
 }					t_map;
 
 typedef  struct 	s_mouse
