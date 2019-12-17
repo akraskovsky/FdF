@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/14 18:44:50 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/17 14:40:37 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,17 @@
 # include "mlx.h"
 # include "libft/libft.h"
 
-# define HEIGHT		1400
-# define WIDTH		2560
-# define DEF_COLOR	0x00AAAA
-# define BG_COLOR	0x000022
-# define MENU_COLOR	0x0F0F0F
-# define UP_COLOR	0xFFFFFF
-# define DOWN_COLOR	0xFF00FF
-# define MENU_W		365
-# define MENU_H		160
+# define HEIGHT			1400
+# define WIDTH			2560
+# define DEF_COLOR		0x00AAAA
+# define BG_COLOR		0x000022
+# define MENU_COLOR		0x0F0F0F
+# define UP_COLOR		0xFFFFFF
+# define DOWN_COLOR		0x000022
+# define UP_COLOR2		0xFFFF22
+# define DOWN_COLOR2	0x004444
+# define MENU_W			420
+# define MENU_H			280
 # define MOUSE_L_BUT	1
 # define MOUSE_R_BUT	2
 # define MOUSE_M_BUT	3
