@@ -6,13 +6,13 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:06:17 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/06 18:41:34 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/17 18:03:11 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void    push_stack(t_point *newpoint, t_point **points_stack)
+void	push_stack(t_point *newpoint, t_point **points_stack)
 {
 	if (points_stack && newpoint)
 	{
@@ -35,11 +35,11 @@ t_point	*pop_stack(t_point **points_stack)
 	return (point);
 }
 
-void	create_map_array(t_map	*map, t_point **points_stack)
+void	create_map_array(t_map *map, t_point **points_stack)
 {
 	int		num;
 	t_point	*point;
-	
+
 	num = map->size_x * map->size_y;
 	if (!(map->z = (int *)malloc(sizeof(int) * num)))
 		terminate("Memory allocation error");

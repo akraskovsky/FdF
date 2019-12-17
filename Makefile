@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/20 10:53:01 by fprovolo          #+#    #+#              #
-#    Updated: 2019/12/17 15:45:30 by fprovolo         ###   ########.fr        #
+#    Updated: 2019/12/17 18:31:37 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC_PATH = ./
 SRC_NAME = main.c read_map.c clean_tools.c keyboard.c draw_map.c tools.c \
-	stack.c init_fdf.c ft_drow_menu.c ft_resize_win.c alt_colors.c mouse.c
+	stack.c init_fdf.c ft_drow_menu.c ft_resize_win.c alt_colors.c mouse.c \
+	ft_controls.c
 OBJ_PATH = ./objects/
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))

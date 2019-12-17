@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_controls.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/19 16:02:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 17:56:48 by fprovolo         ###   ########.fr       */
+/*   Created: 2019/12/17 18:30:58 by fprovolo          #+#    #+#             */
+/*   Updated: 2019/12/17 18:35:36 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		main(int argc, char **argv)
+void	ft_controls(t_fdf *fdf)
 {
-	int		fd;
-	t_map	*map;
-
-	if (argc != 2)
-		terminate("Usage: ./fdf map_filename");
-	if ((fd = open(argv[1], O_RDONLY)) < 0)
-		terminate("File error");
-	if ((map = read_map(fd)) == NULL)
-		terminate("Map error");
-	draw_map(map);
-	clean_map(map);
-	close(fd);
-	return (0);
+	mlx_hook(fdf->win, 2, 0, key_pressed, fdf);
+	mlx_hook(fdf->win, 4, 0, ft_press_mouse, fdf);
+	mlx_hook(fdf->win, 5, 0, ft_mouse_release, fdf);
+	mlx_hook(fdf->win, 6, 0, ft_mmouse, fdf);
 }

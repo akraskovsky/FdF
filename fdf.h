@@ -6,10 +6,9 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 10:40:42 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 15:13:15 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/17 18:33:30 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef FDF_H
 # define FDF_H
@@ -25,13 +24,14 @@
 # define WIDTH			2560
 # define DEF_COLOR		0x00AAAA
 # define BG_COLOR		0x000022
-# define MENU_COLOR		0x0F0F0F
+# define MENU_COLOR		0x001828
+# define MENU_LETTERS	0x038C66
 # define UP_COLOR		0xFFFFFF
 # define DOWN_COLOR		0x000022
 # define UP_COLOR2		0xFFFF22
 # define DOWN_COLOR2	0x004444
 # define MENU_W			420
-# define MENU_H			280
+# define MENU_H			400
 # define MOUSE_L_BUT	1
 # define MOUSE_R_BUT	2
 # define MOUSE_M_BUT	3
@@ -84,14 +84,14 @@ typedef struct		s_map
 	double			angle_z;
 }					t_map;
 
-typedef  struct 	s_mouse
+typedef	struct		s_mouse
 {
-	char 			is_pressed;
-	int 			x;
-	int 			y;
-	int 			previous_x;
-	int 			previous_y;
-} 					t_mouse;
+	char			is_pressed;
+	int				x;
+	int				y;
+	int				previous_x;
+	int				previous_y;
+}					t_mouse;
 
 typedef struct		s_fdf
 {
@@ -106,8 +106,6 @@ typedef struct		s_fdf
 	t_map			*map;
 }					t_fdf;
 
-
-
 t_map				*read_map(int fd);
 t_map				*init_map(void);
 int					parse_color(char *str);
@@ -119,20 +117,22 @@ void				print_map(t_map *map);
 void				draw_map(t_map *map);
 int					key_pressed(int key, t_fdf *fdf);
 int					ft_abs(int x);
-double  			percent(t_pix start, t_pix finish, t_pix point);
+double				percent(t_pix start, t_pix finish, t_pix point);
 void				terminate(char *message);
-void    			push_stack(t_point *newpoint, t_point **points_stack);
+void				push_stack(t_point *newpoint, t_point **points_stack);
 t_point				*pop_stack(t_point **points_stack);
 void				create_map_array(t_map	*map, t_point **points_stack);
 t_pix				get_point(t_map *map, int x, int y);
 void				push_map(t_fdf *fdf);
 t_pix				iso(t_pix pix, t_fdf *fdf);
-void 				draw_line(t_fdf *fdf, t_pix start, t_pix end);
+void				draw_line(t_fdf *fdf, t_pix start, t_pix end);
 t_fdf				*init_fdf(t_map *map);
 void				test_of_colors(t_fdf *fdf);
 void				pixel_to_image(t_fdf *fdf, t_pix pix);
 void				fill_background(t_fdf *fdf);
-void    			ft_drow_menu(t_fdf p);
+void				fill_menu(t_fdf *fdf);
+void				ft_drow_menu(t_fdf p);
+void				ft_drow_menu2(t_fdf p);
 void				new_window(int key, t_fdf *fdf);
 int					get_alt_color(t_map *map, int z);
 void				ft_controls(t_fdf *fdf);

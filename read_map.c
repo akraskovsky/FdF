@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 15:13:15 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/17 18:20:54 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_map	*init_map(void)
 int		parse_color(char *str)
 {
 	int	color;
-	
+
 	if (ft_strncmp(str, "0x", 2) != 0)
 		terminate("Error: Bad map");
 	str += 2;
@@ -77,7 +77,7 @@ void	parse_point(char *line, t_point **points_stack)
 		line++;
 	if (*line == ',')
 		newpoint->color = parse_color(line + 1);
-	push_stack(newpoint, points_stack); 	
+	push_stack(newpoint, points_stack);
 	return ;
 }
 
@@ -94,9 +94,9 @@ void	parse_line(char *line, t_point **points_stack, t_map *map)
 		parse_point(points[column], points_stack);
 		column++;
 	}
-	if (map->size_x == 0)			// 1st string
+	if (map->size_x == 0)
 		map->size_x = column;
-	if (map->size_x != column)		// String length differs
+	if (map->size_x != column)
 		terminate("error: Bad map");
 	clean_points(points);
 	return ;
@@ -108,7 +108,7 @@ t_map	*read_map(int fd)
 	int		string;
 	t_map	*map;
 	t_point	*points_stack;
-	
+
 	map = init_map();
 	points_stack = NULL;
 	string = 1;
@@ -125,6 +125,5 @@ t_map	*read_map(int fd)
 	map->scale_xy = HEIGHT / (map->size_x + map->size_y) * 3 / 2;
 	if (map->max_z > map->min_z)
 		map->scale_z = HEIGHT / 4 / (map->max_z - map->min_z);
-
 	return (map);
 }

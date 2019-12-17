@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:08:49 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 15:51:28 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/17 17:47:02 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ int		get_alt_color(t_map *map, int z)
 	int		blue;
 
 	if ((delta = map->max_z * map->scale_z - map->min_z * map->scale_z) <= 0)
-		return(map->bottom_color);
+		return (map->bottom_color);
 	pcnt = (z - map->min_z * map->scale_z) / delta;
-	red = (map->bottom_color >> 16 & 0xFF) + ((map->top_color >> 16 & 0xFF) - (map->bottom_color >> 16 & 0xFF)) * pcnt;
-	green = (map->bottom_color >> 8 & 0xFF) + ((map->top_color >> 8 & 0xFF) - (map->bottom_color >> 8 & 0xFF)) * pcnt;
-	blue = (map->bottom_color & 0xFF) + ((map->top_color & 0xFF) - (map->bottom_color & 0xFF)) * pcnt;
+	red = (map->bottom_color >> 16 & 0xFF) + ((map->top_color >> 16 & 0xFF) -
+			(map->bottom_color >> 16 & 0xFF)) * pcnt;
+	green = (map->bottom_color >> 8 & 0xFF) + ((map->top_color >> 8 & 0xFF) -
+			(map->bottom_color >> 8 & 0xFF)) * pcnt;
+	blue = (map->bottom_color & 0xFF) + ((map->top_color & 0xFF) -
+			(map->bottom_color & 0xFF)) * pcnt;
 	return ((red << 16) + (green << 8) + blue);
 }

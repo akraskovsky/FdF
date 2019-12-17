@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_resize_win.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 16:23:50 by jmalik            #+#    #+#             */
-/*   Updated: 2019/12/13 18:04:21 by jmalik           ###   ########.fr       */
+/*   Updated: 2019/12/17 17:55:56 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int		check_win_size(int key, t_fdf *fdf)
 {
-	if ((key == 0 && fdf->map->win_y <= 200) || (key == 6 && fdf->map->win_x <= 200))
+	if ((key == 0 && fdf->map->win_y <= 200) ||
+			(key == 6 && fdf->map->win_x <= 200))
 		return (1);
-	if ((key == 1 && fdf->map->win_y >= 1400) || (key == 7 && fdf->map->win_x >= 2560))
+	if ((key == 1 && fdf->map->win_y >= 1400) ||
+			(key == 7 && fdf->map->win_x >= 2560))
 		return (1);
 	return (0);
 }
@@ -55,10 +57,13 @@ void	new_window(int key, t_fdf *fdf)
 {
 	change_window_size(key, fdf);
 	mlx_destroy_window(fdf->mlx, fdf->win);
-	fdf->win = mlx_new_window(fdf->mlx, fdf->map->win_x, fdf->map->win_y, "FdF project");
-	if (!(fdf->img_ptr = mlx_new_image(fdf->mlx, fdf->map->win_x, fdf->map->win_y)))
+	fdf->win = mlx_new_window(fdf->mlx, fdf->map->win_x,
+			fdf->map->win_y, "FdF project");
+	if (!(fdf->img_ptr = mlx_new_image(fdf->mlx, fdf->map->win_x,
+			fdf->map->win_y)))
 		terminate("Initialization error");
-	if (!(fdf->image = mlx_get_data_addr(fdf->img_ptr, &fdf->bits_per_pixel, &fdf->size_line, &fdf->endian)))
+	if (!(fdf->image = mlx_get_data_addr(fdf->img_ptr, &fdf->bits_per_pixel,
+			&fdf->size_line, &fdf->endian)))
 		terminate("Initialization error");
 	push_map(fdf);
 	ft_controls(fdf);
