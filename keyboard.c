@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:51:14 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 18:39:28 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/17 18:59:43 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	made_key_rotate2(int key, t_fdf *fdf)
 	if (key == 92 || key == 25)
 		fdf->map->angle_x -= 0.05;
 	if (key == 86 || key == 21)
-		fdf->map->angle_y += 0.05;
-	if (key == 88 || key == 22)
 		fdf->map->angle_y -= 0.05;
+	if (key == 88 || key == 22)
+		fdf->map->angle_y += 0.05;
 	if (key == 83 || key == 18)
 		fdf->map->angle_z += 0.05;
 	if (key == 85 || key == 20)
