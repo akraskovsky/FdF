@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:59:39 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 18:20:54 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:10:49 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,8 @@ int		parse_color(char *str)
 
 void	parse_point(char *line, t_point **points_stack)
 {
-	t_pix	*pix;
 	t_point	*newpoint;
 
-	if (!(pix = (t_pix *)malloc(sizeof(t_pix))))
-		terminate("Memory allocation error");
 	if (!(newpoint = (t_point *)malloc(sizeof(t_point))))
 		terminate("Memory allocation error");
 	newpoint->z = ft_atoi(line);

@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 16:23:50 by jmalik            #+#    #+#             */
-/*   Updated: 2019/12/17 17:55:56 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:19:08 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		check_win_size(int key, t_fdf *fdf)
 {
-	if ((key == 0 && fdf->map->win_y <= 200) ||
-			(key == 6 && fdf->map->win_x <= 200))
+	if ((key == 0 && fdf->map->win_y <= MENU_H + 105) ||
+			(key == 6 && fdf->map->win_x <= MENU_W + 105))
 		return (1);
 	if ((key == 1 && fdf->map->win_y >= 1400) ||
 			(key == 7 && fdf->map->win_x >= 2560))
@@ -25,16 +25,23 @@ int		check_win_size(int key, t_fdf *fdf)
 
 void	full_screen(t_fdf *fdf)
 {
-	static int old_x;
-	static int old_y;
+	static int old_x = 2560;
+	static int old_y = 1400;
 
-	if (fdf->map->win_x != 2560)
+	if (fdf->map->win_x != 2560 || fdf->map->win_y != 1400)
 	{
 		old_x = fdf->map->win_x;
 		old_y = fdf->map->win_y;
+		fdf->map->win_x = 2560;
+		fdf->map->win_y = 1400;
 	}
-	fdf->map->win_x = (fdf->map->win_x == 2560) ? old_x : 2560;
-	fdf->map->win_y = (fdf->map->win_y == 1400) ? old_y : 1400;
+	else
+	{
+		fdf->map->win_x = old_x;
+		fdf->map->win_y = old_y;
+		old_x = 2560;
+		old_y = 1400;
+	}
 }
 
 void	change_window_size(int key, t_fdf *fdf)

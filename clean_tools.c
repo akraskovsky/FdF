@@ -6,17 +6,19 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 16:18:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 17:50:22 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:09:06 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	clean_map(t_map *map)
+void	clean_map(t_map *map, t_fdf *fdf)
 {
 	free(map->z);
 	free(map->color);
 	free(map);
+	free(fdf->mouse);
+	free(fdf);
 	return ;
 }
 

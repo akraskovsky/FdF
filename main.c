@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 16:02:37 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 17:56:48 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:13:16 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int		main(int argc, char **argv)
 	if ((map = read_map(fd)) == NULL)
 		terminate("Map error");
 	draw_map(map);
-	clean_map(map);
 	close(fd);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 16:25:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2019/12/17 18:35:41 by fprovolo         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:13:17 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ void	draw_map(t_map *map)
 	ft_drow_menu(*fdf);
 	ft_controls(fdf);
 	mlx_loop(fdf->mlx);
+	clean_map(map, fdf);
 	return ;
 }
