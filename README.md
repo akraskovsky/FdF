@@ -15,4 +15,4 @@ All lines, color gradients etc. should be made by student.
 
 <hr>
 Project was made with maximum bunus level for extra functionality as mouse controlled movement and warious rotations, as well as warious color pallettes applied.<br>
-<b>Screenshots</b> and onscreen video are scown on project Wiki page as well as in appropriate folder.
+<b>Screenshots</b> and onscreen video are shown on project Wiki page as well as in appropriate folder.
